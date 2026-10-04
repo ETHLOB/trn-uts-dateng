@@ -1,0 +1,28 @@
+# Secrets and machine-local config
+.env
+.env.*
+.mcp.json
+dbt_cloud.yml
+.claude/
+
+# Side projects, not part of the assignment
+lab/
+
+# dbt generated files
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+logs/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Datasets (downloaded from the course links, too large for git)
+data/
+*.csv
+*.zip
+
+# OS
+.DS_Store

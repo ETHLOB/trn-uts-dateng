@@ -1,0 +1,14 @@
+name: trn_uts_dateng
+version: "1.0.0"
+config-version: 2
+
+# Connection profile. Local runs read ~/.dbt/profiles.yml; dbt Cloud uses its own connection.
+profile: trn_uts_dateng
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+
+clean-targets: ["target", "dbt_packages"]
