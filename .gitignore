@@ -2,11 +2,13 @@
 .env
 .env.*
 .mcp.json
-dbt_cloud.yml
 .claude/
 
 # Side projects, not part of the assignment
 lab/
+
+# Additional files gathered from the course materials, not part of the assignment. Can be dangerous CAREFUL!!
+misc/
 
 # dbt generated files
 dbt/target/
@@ -26,3 +28,7 @@ data/
 
 # OS
 .DS_Store
+
+# Screenshots show account identifiers and IPs; keep them local
+screenshots/*.png
+screenshots/*.jpg
