@@ -15,6 +15,8 @@ dbt/target/
 dbt/logs/
 dbt/dbt_packages/
 logs/
+# ...except the operations logs, which are project evidence (no identifiers)
+!ops/logs/
 
 # Python
 .venv/
