@@ -1,6 +1,7 @@
 /* =====================================================================
    part_1.sql: Bronze layer for the Sydney Airbnb + 2016 Census ELT pipeline
-   Run in DBeaver, connected to the Cloud SQL instance as user postgres.
+   Pure SQL, run in DBeaver (or any SQL client) connected to the Cloud SQL
+   PostgreSQL instance as user postgres.
 
    Design
    - Bronze keeps the files exactly as delivered: every column is TEXT, so a
@@ -12,15 +13,16 @@
      Silver derives the listing month from it, because SCRAPED_DATE drifts:
      07_2020.csv holds scrapes up to 2020-09-05) and _loaded_at.
    - The Airflow DAG loads as the IAM database user of the Composer service
-     account (no password). It gets only the rights it needs through the group
-     role bronze_loader.
+     account (no password for enhanced security). It gets only the rights it
+     needs through the group role bronze_loader.
    ===================================================================== */
 
 -- 1. Schema --------------------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS bronze;
 
 -- 2. Raw tables ------------------------------------------------------------
--- Airbnb Sydney monthly snapshots, May 2020 to April 2021 (one file per month, identical 22-column header)
+-- Airbnb Sydney monthly snapshots, May 2020 to April 2021 (one file per month,
+-- identical 22-column header)
 CREATE TABLE IF NOT EXISTS bronze.raw_listings (
     listing_id                       TEXT,
     scrape_id                        TEXT,
@@ -195,7 +197,7 @@ CREATE TABLE IF NOT EXISTS bronze.raw_lga_suburb (
 );
 
 -- 3. Loader role for the Airflow DAG -------------------------------------
--- Group role with the minimum rights for an idempotent load:
+-- Group role with the minimum rights for an IDEMpotent load:
 -- INSERT new rows, DELETE a file's rows before reloading it, TRUNCATE the
 -- small reference tables, SELECT for row-count checks.
 DO $$
@@ -215,7 +217,7 @@ DECLARE loader TEXT;
 BEGIN
     SELECT rolname INTO loader FROM pg_roles WHERE rolname LIKE 'composer-runner@%.iam';
     IF loader IS NULL THEN
-        RAISE EXCEPTION 'IAM database user composer-runner@<project>.iam not found: create it first';
+        RAISE EXCEPTION '[ERROR] - IAM database user composer-runner@<project>.iam not found: please, create it first';
     END IF;
     EXECUTE format('GRANT bronze_loader TO %I', loader);
 END $$;
@@ -228,6 +230,6 @@ FROM information_schema.tables t
 WHERE table_schema = 'bronze'
 ORDER BY table_name;
 
--- Before the first DAG run (brief advice: truncate all tables first):
+-- Before the first DAG run (the stakeholder's advice: truncate all tables first):
 -- TRUNCATE bronze.raw_listings, bronze.raw_census_g01, bronze.raw_census_g02,
 --          bronze.raw_lga_code, bronze.raw_lga_suburb;
