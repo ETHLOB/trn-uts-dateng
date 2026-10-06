@@ -4,6 +4,7 @@
 # Each run is a snapshot: rows share one `as_of`; readers should use the latest snapshot per usage_date.
 # Usage: ops/cost_report.sh
 set -euo pipefail
+gcloud auth print-access-token >/dev/null 2>&1 || { echo "gcloud is not authenticated (sessions expire about daily): run gcloud auth login" >&2; exit 2; }
 
 cd "$(dirname "$0")"
 mkdir -p logs
@@ -37,6 +38,8 @@ python3 -c "
 import json, sys
 rows = json.load(sys.stdin)
 with open('$LOG', 'a') as f:
+    if not rows:
+        f.write(json.dumps({'as_of': '$NOW', 'status': 'export_table_empty'}) + '\n')
     for r in rows:
         r['as_of'] = '$NOW'
         r['cost'], r['credits'] = float(r['cost']), float(r['credits'])

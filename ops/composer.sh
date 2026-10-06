@@ -10,6 +10,7 @@
 #   ops/composer.sh down --force   delete without the evidence gate (logged as forced)
 set -euo pipefail
 export CLOUDSDK_CORE_DISABLE_PROMPTS=1   # never block on an interactive gcloud prompt
+gcloud auth print-access-token >/dev/null 2>&1 || { echo "gcloud is not authenticated (sessions expire about daily): run gcloud auth login" >&2; exit 2; }
 
 ENV=bde-at3-airflow
 LOC=australia-southeast1
