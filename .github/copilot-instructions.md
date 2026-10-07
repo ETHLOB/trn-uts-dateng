@@ -23,7 +23,7 @@ Local dbt runs use dbt Core + dbt-postgres from `~/.venvs/trn-uts-dateng` (not t
   - Gold contains the star schema. Fact tables contain IDs and metrics; dimensions contain descriptive attributes. Keep the two Census tables as Gold reference data.
   - Datamart models are views over the fact table and dimensions. They must use SCD2 validity ranges when joining dimensions so each fact row receives the dimension values valid at that period, rather than the latest dimension record.
 - **Required datamart views:** `dm_listing_neighbourhood`, `dm_property_type`, and `dm_host_neighbourhood`, with the metrics and ordering specified in the cleaned brief.
-- **Operational sequencing:** Load dimensions before facts. Process monthly Airbnb loads chronologically and manually run the dbt Cloud job after each monthly load. Use `dbt run --full-refresh` when a complete rebuild is required.
+- **Operational sequencing:** Load dimensions before facts. Process monthly Airbnb loads chronologically and manually trigger the dbt Cloud job `monthly-build` after each monthly load (on demand, never on a schedule). Use `dbt run --full-refresh` when a complete rebuild is required.
 
 ## Repository-specific conventions
 
