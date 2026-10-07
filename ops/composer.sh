@@ -59,10 +59,31 @@ case "${1:-status}" in
   evidence)
     [ -n "$(exists)" ] || { echo "No environment, nothing to export."; exit 1; }
     STAMP=$(date -u +%Y%m%dT%H%M%SZ); OUT="logs/airflow/$STAMP"; mkdir -p "$OUT"
-    for DAG in $(gcloud composer environments run "$ENV" --location "$LOC" dags list -- -o plain 2>/dev/null | awk 'NR>1 {print $1}'); do
-      gcloud composer environments run "$ENV" --location "$LOC" dags list-runs -- -d "$DAG" -o json > "$OUT/runs_$DAG.json" 2>/dev/null || true
-    done
-    gcloud storage rsync --recursive "$(bucket)/logs" "$OUT/task_logs" --quiet || true
+    # Airflow REST API with the caller's Google token (gcloud `environments run` output mixes log lines into
+    # the JSON, and Composer 3 keeps task logs in Cloud Logging, not in the bucket).
+    AF=$(gcloud composer environments describe "$ENV" --location "$LOC" --format="value(config.airflowUri)")
+    AF_URL="$AF" AF_TOKEN="$(gcloud auth print-access-token)" OUT_DIR="$OUT" python3 - <<'PY'
+import json, os, urllib.parse, urllib.request
+base, token, out = os.environ["AF_URL"] + "/api/v1", os.environ["AF_TOKEN"], os.environ["OUT_DIR"]
+def get(path, text=False):
+    req = urllib.request.Request(base + path, headers={"Authorization": f"Bearer {token}", "Accept": "text/plain" if text else "application/json"})
+    with urllib.request.urlopen(req) as r:
+        body = r.read().decode()
+    return body if text else json.loads(body)
+q = urllib.parse.quote
+for dag in [d["dag_id"] for d in get("/dags?limit=100")["dags"] if d["dag_id"] != "airflow_monitoring"]:
+    runs = get(f"/dags/{dag}/dagRuns?limit=100&order_by=execution_date")["dag_runs"]
+    json.dump(runs, open(f"{out}/runs_{dag}.json", "w"), indent=1)
+    tis = []
+    for run in runs:
+        for ti in get(f"/dags/{dag}/dagRuns/{q(run['dag_run_id'], safe='')}/taskInstances")["task_instances"]:
+            tis.append(ti)
+            log = get(f"/dags/{dag}/dagRuns/{q(run['dag_run_id'], safe='')}/taskInstances/{ti['task_id']}/logs/{ti['try_number'] or 1}", text=True)
+            os.makedirs(f"{out}/task_logs/{dag}", exist_ok=True)
+            open(f"{out}/task_logs/{dag}/{run['dag_run_id'].replace(':', '-')}__{ti['task_id']}.log", "w").write(log)
+    json.dump(tis, open(f"{out}/task_instances_{dag}.json", "w"), indent=1)
+    print(f"{dag}: {len(runs)} runs, {len(tis)} task instances, states {sorted({r['state'] for r in runs})}")
+PY
     touch logs/airflow/.last_evidence
     log evidence done "$OUT"
     echo "Exported to ops/$OUT. Take the Airflow UI screenshots (DAG graph, grid, run details) before 'down'."

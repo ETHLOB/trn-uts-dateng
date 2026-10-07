@@ -1,11 +1,11 @@
--- Part 4: ad-hoc analysis (Postgres, production schemas gold.*)
+-- Part 4: ad-hoc analysis
 --
 -- Assumptions shared by every query:
---  * Dimension joins are SCD2: the dimension version valid at the fact's month
+--  * Dimension joins obeys SCD2: the dimension version valid at the fact's month
 --    (f.listing_month >= d.valid_from and (d.valid_to is null or f.listing_month < d.valid_to)),
 --    never is_current.
 --  * "Last 12 months" = the 12 loaded months, May 2020 to April 2021, written once per query in
---    the CTE `period`.
+--    the CTE <period>.
 --  * Active listing = is_active = 1. Estimated revenue per active listing = avg(estimated_revenue)
 --    over active listing-months (the same definition as the datamart); stays = 30 - availability_30.
 --  * A listing's LGA = its listing_neighbourhood (an LGA name); join gold.dim_lga on lga_name to get
@@ -66,8 +66,7 @@ join gold.ref_census_g01 g1 on g1.lga_code = r.lga_code
 join gold.ref_census_g02 g2 on g2.lga_code = r.lga_code
 where r.rank_top <= 3 or r.rank_bottom <= 3
 order by "group" desc, r.revenue_per_active_listing desc;
--- How to read: six rows, three per group. Compare the age shares, household size and income
--- columns between the two groups to see how the best and worst LGAs differ.
+-- Compare the age shares, household size and income columns between the two groups to see how the best and worst LGAs differ.
 
 
 -- Question b: Is there a correlation between the median age of a neighbourhood (from Census data)
@@ -144,13 +143,16 @@ order by n_lgas;
 -- for the top 5 "listing_neighbourhood" (in terms of average estimated revenue per active listing)
 -- to have the highest number of stays?
 -- Assumptions: "best" = the (property_type, room_type, accommodates) combination with the highest
--- average stays per active listing-month. Only combinations with at least 12 active listing-months
--- are considered, so one-off listings do not win. Ties are broken by total stays.
+-- average stays per active listing-month. Only combinations with at least 5 distinct listings and
+-- 12 active listing-months are considered, so a single property that is always unavailable (stays
+-- = 30 - availability_30 also counts days blocked by the host) cannot decide the answer. Ties are
+-- broken by total stays.
 with period as (
     select date '2020-05-01' as start_month, date '2021-04-01' as end_month
 ),
 base as (
     select
+        f.listing_id,
         p.listing_neighbourhood,
         p.property_type,
         p.room_type,
@@ -180,6 +182,7 @@ combos as (
         b.property_type,
         b.room_type,
         b.accommodates,
+        count(distinct b.listing_id)          as n_listings,
         count(*)                              as active_listing_months,
         sum(b.number_of_stays)                as total_stays,
         round(avg(b.number_of_stays), 2)      as avg_stays_per_active_listing_month
@@ -187,7 +190,7 @@ combos as (
     join top_lgas t on t.listing_neighbourhood = b.listing_neighbourhood
     where b.is_active = 1
     group by b.listing_neighbourhood, b.property_type, b.room_type, b.accommodates
-    having count(*) >= 12
+    having count(distinct b.listing_id) >= 5 and count(*) >= 12
 ),
 ranked as (
     select
@@ -206,6 +209,7 @@ select
     r.accommodates,
     r.avg_stays_per_active_listing_month,
     r.total_stays,
+    r.n_listings,
     r.active_listing_months
 from ranked r
 join top_lgas t on t.listing_neighbourhood = r.listing_neighbourhood
