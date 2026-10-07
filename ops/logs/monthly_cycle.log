@@ -1,0 +1,53 @@
+{"ts": "2026-10-07T10:48:24Z", "file": "06_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/06_2020.csv"}
+{"ts": "2026-10-07T10:48:26Z", "file": "06_2020.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T10:48:25.937938+00:00"}
+{"ts": "2026-10-07T10:49:02Z", "file": "06_2020.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 06_2020.csv: 36901 (file: 36900)"}
+{"ts": "2026-10-07T10:49:23Z", "file": "06_2020.csv", "step": "dag_skip", "result": "check", "detail": "bronze rows for 06_2020.csv: 36901 (file: 36901)"}
+{"ts": "2026-10-07T10:49:24Z", "file": "06_2020.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904665"}
+{"ts": "2026-10-07T10:51:07Z", "file": "06_2020.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904665: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T10:51:23Z", "file": "07_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/07_2020.csv"}
+{"ts": "2026-10-07T10:51:25Z", "file": "07_2020.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T10:51:24.937521+00:00"}
+{"ts": "2026-10-07T10:51:43Z", "file": "07_2020.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 07_2020.csv: 36057 (file: 36057)"}
+{"ts": "2026-10-07T10:51:44Z", "file": "07_2020.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904671"}
+{"ts": "2026-10-07T10:53:30Z", "file": "07_2020.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904671: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T10:53:40Z", "file": "08_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/08_2020.csv"}
+{"ts": "2026-10-07T10:53:42Z", "file": "08_2020.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T10:53:42.144422+00:00"}
+{"ts": "2026-10-07T10:54:01Z", "file": "08_2020.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 08_2020.csv: 31391 (file: 31391)"}
+{"ts": "2026-10-07T10:54:02Z", "file": "08_2020.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904673"}
+{"ts": "2026-10-07T10:55:44Z", "file": "08_2020.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904673: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T10:55:54Z", "file": "09_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/09_2020.csv"}
+{"ts": "2026-10-07T10:55:56Z", "file": "09_2020.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T10:55:55.849207+00:00"}
+{"ts": "2026-10-07T10:56:15Z", "file": "09_2020.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 09_2020.csv: 34829 (file: 34829)"}
+{"ts": "2026-10-07T10:56:16Z", "file": "09_2020.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904677"}
+{"ts": "2026-10-07T10:57:59Z", "file": "09_2020.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904677: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T10:58:08Z", "file": "10_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/10_2020.csv"}
+{"ts": "2026-10-07T10:58:10Z", "file": "10_2020.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T10:58:10.289673+00:00"}
+{"ts": "2026-10-07T10:58:29Z", "file": "10_2020.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 10_2020.csv: 34276 (file: 34276)"}
+{"ts": "2026-10-07T10:58:30Z", "file": "10_2020.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904681"}
+{"ts": "2026-10-07T11:00:15Z", "file": "10_2020.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904681: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T11:00:27Z", "file": "11_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/11_2020.csv"}
+{"ts": "2026-10-07T11:00:29Z", "file": "11_2020.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T11:00:29.463868+00:00"}
+{"ts": "2026-10-07T11:01:05Z", "file": "11_2020.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 11_2020.csv: 33795 (file: 33795)"}
+{"ts": "2026-10-07T11:01:06Z", "file": "11_2020.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904774"}
+{"ts": "2026-10-07T11:02:49Z", "file": "11_2020.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904774: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T11:03:16Z", "file": "12_2020.csv", "step": "upload", "result": "done", "detail": "data/airbnb/12_2020.csv (manual month: user triggers DAG and dbt in the UIs)"}
+{"ts": "2026-10-07T11:13:59Z", "file": "12_2020.csv", "step": "manual_ui", "result": "success", "detail": "user triggered DAG run manual__2026-10-07T22:05:06+11:00 and dbt run 70506183904842 (Success) in the UIs; bronze 33871 rows"}
+{"ts": "2026-10-07T11:14:19Z", "file": "01_2021.csv", "step": "upload", "result": "done", "detail": "data/airbnb/01_2021.csv"}
+{"ts": "2026-10-07T11:14:22Z", "file": "01_2021.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T11:14:22.002158+00:00"}
+{"ts": "2026-10-07T11:14:57Z", "file": "01_2021.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 01_2021.csv: 33902 (file: 33902)"}
+{"ts": "2026-10-07T11:14:58Z", "file": "01_2021.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904858"}
+{"ts": "2026-10-07T11:16:44Z", "file": "01_2021.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904858: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T11:16:54Z", "file": "02_2021.csv", "step": "upload", "result": "done", "detail": "data/airbnb/02_2021.csv"}
+{"ts": "2026-10-07T11:16:56Z", "file": "02_2021.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T11:16:56.249013+00:00"}
+{"ts": "2026-10-07T11:17:15Z", "file": "02_2021.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 02_2021.csv: 33630 (file: 33630)"}
+{"ts": "2026-10-07T11:17:16Z", "file": "02_2021.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904863"}
+{"ts": "2026-10-07T11:19:01Z", "file": "02_2021.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904863: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T11:19:12Z", "file": "03_2021.csv", "step": "upload", "result": "done", "detail": "data/airbnb/03_2021.csv"}
+{"ts": "2026-10-07T11:19:14Z", "file": "03_2021.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T11:19:14.240719+00:00"}
+{"ts": "2026-10-07T11:19:33Z", "file": "03_2021.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 03_2021.csv: 33229 (file: 33229)"}
+{"ts": "2026-10-07T11:19:34Z", "file": "03_2021.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904866"}
+{"ts": "2026-10-07T11:21:16Z", "file": "03_2021.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904866: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
+{"ts": "2026-10-07T11:21:26Z", "file": "04_2021.csv", "step": "upload", "result": "done", "detail": "data/airbnb/04_2021.csv"}
+{"ts": "2026-10-07T11:21:28Z", "file": "04_2021.csv", "step": "dag_trigger", "result": "done", "detail": "manual__2026-10-07T11:21:28.413287+00:00"}
+{"ts": "2026-10-07T11:21:47Z", "file": "04_2021.csv", "step": "dag_run", "result": "success", "detail": "bronze rows for 04_2021.csv: 32679 (file: 32679)"}
+{"ts": "2026-10-07T11:21:48Z", "file": "04_2021.csv", "step": "dbt_trigger", "result": "done", "detail": "run 70506183904875"}
+{"ts": "2026-10-07T11:23:33Z", "file": "04_2021.csv", "step": "dbt_run", "result": "Success", "detail": "run 70506183904875: PASS=75 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=75"}
