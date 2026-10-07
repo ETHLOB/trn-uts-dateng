@@ -12,3 +12,14 @@
 {"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-07", "as_of": "2026-10-07T10:37:13Z", "net": 0.0}
 {"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-07", "as_of": "2026-10-07T10:37:13Z", "net": 0.0}
 {"cost": 0.215, "credits": -0.215, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-07", "as_of": "2026-10-07T10:37:13Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-04", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0115, "credits": -0.0115, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-04", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-05", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.9899, "credits": -0.9899, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-05", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-06", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-06", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 1.7214, "credits": -1.7214, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-06", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-06", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-07", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-07", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.3094, "credits": -0.3094, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-07", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}

@@ -1,0 +1,20 @@
+default-hostname
+*** Reading remote logs from Cloud Logging.
+[2026-10-07 10:51:34.416147+00:00] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-07 10:51:34.500516+00:00] {taskinstance.py:2633} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bronze_load.load_listings manual__2026-10-07T10:51:24.937521+00:00 [queued]>
+[2026-10-07 10:51:34.530583+00:00] {taskinstance.py:2633} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bronze_load.load_listings manual__2026-10-07T10:51:24.937521+00:00 [queued]>
+[2026-10-07 10:51:34.530707+00:00] {taskinstance.py:2886} INFO - Starting attempt 1 of 3
+[2026-10-07 10:51:34.553339+00:00] {taskinstance.py:2909} INFO - Executing <Task(_PythonDecoratedOperator): load_listings> on 2026-10-07 10:51:24.937521+00:00
+[2026-10-07 10:51:34.567376+00:00] {standard_task_runner.py:72} INFO - Started process 7529 to run task
+[2026-10-07 10:51:34.576267+00:00] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'bronze_load', 'load_listings', 'manual__2026-10-07T10:51:24.937521+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/bronze_load.py', '--cfg-path', '/tmp/tmpy09ux3vq']
+[2026-10-07 10:51:34.577323+00:00] {standard_task_runner.py:105} INFO - Job 48: Subtask load_listings
+[2026-10-07 10:51:34.700778+00:00] {task_command.py:473} INFO - Running <TaskInstance: bronze_load.load_listings manual__2026-10-07T10:51:24.937521+00:00 [running]> on host airflow-worker-qch92
+[2026-10-07 10:51:35.039908+00:00] {taskinstance.py:3159} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bronze_load' AIRFLOW_CTX_TASK_ID='load_listings' AIRFLOW_CTX_EXECUTION_DATE='2026-10-07T10:51:24.937521+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-07T10:51:24.937521+00:00'
+[2026-10-07 10:51:35.041879+00:00] {taskinstance.py:741} INFO - ::endgroup::
+[2026-10-07 10:51:36.865695+00:00] {logging_mixin.py:190} INFO - bronze.raw_listings: 36057 rows loaded from airbnb/07_2020.csv
+[2026-10-07 10:51:36.866389+00:00] {python.py:240} INFO - Done. Returned value was: 36057
+[2026-10-07 10:51:36.957005+00:00] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-10-07 10:51:36.958076+00:00] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=bronze_load, task_id=load_listings, run_id=manual__2026-10-07T10:51:24.937521+00:00, execution_date=20261007T105124, start_date=20261007T105134, end_date=20261007T105136
+[2026-10-07 10:51:37.078753+00:00] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-07 10:51:37.130966+00:00] {taskinstance.py:3927} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-10-07 10:51:37.134728+00:00] {local_task_job_runner.py:245} INFO - ::endgroup::

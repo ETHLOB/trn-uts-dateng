@@ -67,7 +67,7 @@ import json, os, urllib.parse, urllib.request
 base, token, out = os.environ["AF_URL"] + "/api/v1", os.environ["AF_TOKEN"], os.environ["OUT_DIR"]
 def get(path, text=False):
     req = urllib.request.Request(base + path, headers={"Authorization": f"Bearer {token}", "Accept": "text/plain" if text else "application/json"})
-    with urllib.request.urlopen(req) as r:
+    with urllib.request.urlopen(req, timeout=60) as r:   # a hung log request must not block the export
         body = r.read().decode()
     return body if text else json.loads(body)
 q = urllib.parse.quote
@@ -78,7 +78,10 @@ for dag in [d["dag_id"] for d in get("/dags?limit=100")["dags"] if d["dag_id"] !
     for run in runs:
         for ti in get(f"/dags/{dag}/dagRuns/{q(run['dag_run_id'], safe='')}/taskInstances")["task_instances"]:
             tis.append(ti)
-            log = get(f"/dags/{dag}/dagRuns/{q(run['dag_run_id'], safe='')}/taskInstances/{ti['task_id']}/logs/{ti['try_number'] or 1}", text=True)
+            try:
+                log = get(f"/dags/{dag}/dagRuns/{q(run['dag_run_id'], safe='')}/taskInstances/{ti['task_id']}/logs/{ti['try_number'] or 1}", text=True)
+            except Exception as e:   # task logs also stay in Cloud Logging after the environment is deleted
+                log = f"log not exported: {e}"
             os.makedirs(f"{out}/task_logs/{dag}", exist_ok=True)
             open(f"{out}/task_logs/{dag}/{run['dag_run_id'].replace(':', '-')}__{ti['task_id']}.log", "w").write(log)
     json.dump(tis, open(f"{out}/task_instances_{dag}.json", "w"), indent=1)
