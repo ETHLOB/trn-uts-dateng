@@ -11,9 +11,9 @@ lab/
 misc/
 
 # dbt generated files
-dbt/target/
-dbt/logs/
-dbt/dbt_packages/
+src/dbt/target/
+src/dbt/logs/
+src/dbt/dbt_packages/
 logs/
 # ...except the operations logs, which are project evidence (no identifiers)
 !ops/logs/

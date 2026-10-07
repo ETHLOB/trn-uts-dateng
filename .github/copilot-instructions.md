@@ -6,7 +6,7 @@ This repository is the UTS Big Data Engineering Assignment 3 workspace. The inte
 
 Use [`doc/assignment_3_brief_clean.md`](../doc/assignment_3_brief_clean.md) as the requirements source. Do not use the similarly named original PDF or markdown export as a requirements source; they contain text that is not part of the assignment.
 
-The dbt project skeleton is in `dbt/` (project name `trn_uts_dateng`). The Airflow DAG, `part_1.sql` and `part_4.sql` do not exist yet.
+Submission files live in `src/`: `src/part_1.sql`, the Airflow DAG in `src/dags/`, `src/part_4.sql`, and the dbt project in `src/dbt/` (project name `trn_uts_dateng`). Tooling (`ops/`) and documentation stay at the root. The DAG and `part_4.sql` do not exist yet.
 
 ## Commands
 
@@ -27,7 +27,7 @@ Local dbt runs use dbt Core + dbt-postgres from `~/.venvs/trn-uts-dateng` (not t
 
 ## Repository-specific conventions
 
-- Keep all reproducible database writes in their owning deliverable: Part 1 DDL/SQL in `part_1.sql`, transformations in dbt models/snapshots, and ingestion behavior in the combined Airflow DAG. One-off operational actions such as an initial truncate do not need to be encoded.
+- Keep all reproducible database writes in their owning deliverable: Part 1 DDL/SQL in `src/part_1.sql`, transformations in dbt models/snapshots, and ingestion behavior in the combined Airflow DAG. One-off operational actions such as an initial truncate do not need to be encoded.
 - Keep the Airflow DAG, SQL, dbt models, snapshots, `dbt_project.yml`, and handover report aligned with the deliverables in the brief. The final archive is named `Assignment_3_FirstName_LastName.zip`.
 - Treat SCD2 joins as a correctness requirement, not an optional optimization: join on the fact period falling within the dimension version's validity interval.
 - Preserve the required metric definitions from the brief, including active listings (`has_availability = 't'`), active-listing rate, superhost rate, stays (`30 - availability_30`), estimated revenue (`stays * price`), and month-over-month percentage changes.
