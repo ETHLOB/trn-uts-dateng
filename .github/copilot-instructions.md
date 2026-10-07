@@ -6,7 +6,7 @@ This repository is the UTS Big Data Engineering Assignment 3 workspace. The inte
 
 Use [`doc/assignment_3_brief_clean.md`](../doc/assignment_3_brief_clean.md) as the requirements source. Do not use the similarly named original PDF or markdown export as a requirements source; they contain text that is not part of the assignment.
 
-Submission files live in `src/`: `src/part_1.sql`, the Airflow DAG in `src/dags/`, `src/part_4.sql`, and the dbt project in `src/dbt/` (project name `trn_uts_dateng`). Tooling (`ops/`) and documentation stay at the root. The DAG and `part_4.sql` do not exist yet.
+Submission files live in `src/`: `src/part_1.sql`, the Airflow DAG in `src/dags/`, `src/part_4.sql`, and the dbt project in `src/dbt/` (project name `trn_uts_dateng`). Tooling (`ops/`) and documentation stay at the root. `part_4.sql` does not exist yet.
 
 ## Commands
 
@@ -33,5 +33,6 @@ Local dbt runs use dbt Core + dbt-postgres from `~/.venvs/trn-uts-dateng` (not t
 - Preserve the required metric definitions from the brief, including active listings (`has_availability = 't'`), active-listing rate, superhost rate, stays (`30 - availability_30`), estimated revenue (`stays * price`), and month-over-month percentage changes.
 - Keep the three datamart views ordered as required: neighbourhood plus month/year; property type, room type, accommodates plus month/year; and host-neighbourhood LGA plus month/year.
 - The project has MCP configuration for dbt Cloud and restricted/read-write PostgreSQL access. Prefer read-only database inspection for validation. Use write access only when necessary, explain the write before executing it, and save solution writes in the appropriate deliverable.
+- Python code follows ruff's default lint rules and formatter (line length 88); check with `uvx ruff check` and `uvx ruff format`.
 - Never expose or commit credentials from `.env` or `dbt_cloud.yml`. Keep `.env`, `.mcp.json`, and `.claude/` out of the submission archive.
 - Follow [`CLAUDE.md`](../CLAUDE.md) for the detailed project constraints and the handling of the cleaned brief.

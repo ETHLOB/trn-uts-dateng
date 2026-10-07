@@ -1,0 +1,102 @@
+version: 2
+
+models:
+  - name: dm_listing_neighbourhood
+    description: >
+      Monthly metrics per listing_neighbourhood. View on fct_listings joined to dim_property and
+      dim_host with SCD2 logic (version valid at the fact month). Ordered by listing_neighbourhood, month.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "listing_neighbourhood || '-' || listing_month"
+    columns:
+      - name: listing_month
+        description: First day of the month.
+        data_tests: [not_null]
+      - name: month_year
+        description: Month as MM/YYYY.
+      - name: active_listing_rate
+        description: Active listings / total listings * 100 (active = has_availability 't').
+      - name: min_price
+        description: Minimum price of active listings.
+      - name: max_price
+        description: Maximum price of active listings.
+      - name: median_price
+        description: Median price of active listings (percentile_cont 0.5).
+      - name: avg_price
+        description: Average price of active listings.
+      - name: distinct_hosts
+        description: Number of distinct hosts.
+      - name: superhost_rate
+        description: Distinct hosts with host_is_superhost 't' / distinct hosts * 100 (null counts as not superhost).
+      - name: avg_review_scores_rating
+        description: Average review_scores_rating of active listings.
+      - name: pct_change_active_listings
+        description: >
+          (active listings - previous calendar month) / previous * 100; null when the previous month
+          is absent or zero.
+      - name: pct_change_inactive_listings
+        description: Same as pct_change_active_listings for inactive listings.
+      - name: total_stays
+        description: Sum of (30 - availability_30) over active listings.
+      - name: avg_estimated_revenue_per_active_listing
+        description: Average of stays * price over active listings.
+
+  - name: dm_property_type
+    description: >
+      Monthly metrics per property_type, room_type and accommodates. View on fct_listings joined with
+      SCD2 logic. Ordered by property_type, room_type, accommodates, month.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "property_type || '-' || room_type || '-' || accommodates || '-' || listing_month"
+    columns:
+      - name: property_type
+        data_tests: [not_null]
+        description: Airbnb property type valid at the month.
+      - name: room_type
+        data_tests: [not_null]
+        description: Room type valid at the month.
+      - name: accommodates
+        data_tests: [not_null]
+        description: Guests accommodated, valid at the month.
+      - name: listing_month
+        description: First day of the month.
+        data_tests: [not_null]
+      - name: active_listing_rate
+        description: Active listings / total listings * 100.
+      - name: median_price
+        description: Median price of active listings.
+      - name: distinct_hosts
+        description: Number of distinct hosts.
+      - name: superhost_rate
+        description: Distinct superhosts / distinct hosts * 100 (null counts as not superhost).
+      - name: pct_change_active_listings
+        description: Month to month percentage change of active listings (previous calendar month).
+      - name: pct_change_inactive_listings
+        description: Month to month percentage change of inactive listings (previous calendar month).
+      - name: total_stays
+        description: Sum of (30 - availability_30) over active listings.
+      - name: avg_estimated_revenue_per_active_listing
+        description: Average of stays * price over active listings.
+
+  - name: dm_host_neighbourhood
+    description: >
+      Monthly metrics per host_neighbourhood_lga (host suburb mapped to LGA). Null LGA groups hosts with
+      an empty or Overseas neighbourhood. Ordered by host_neighbourhood_lga, month.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "coalesce(host_neighbourhood_lga, '(none)') || '-' || listing_month"
+    columns:
+      - name: host_neighbourhood_lga
+        description: LGA of the host's neighbourhood; null when unknown.
+      - name: listing_month
+        description: First day of the month.
+        data_tests: [not_null]
+      - name: distinct_hosts
+        description: Number of distinct hosts in the group.
+      - name: avg_estimated_revenue_per_active_listing
+        description: Average of stays * price over active listings.
+      - name: estimated_revenue_per_host
+        description: Total estimated revenue of active listings / distinct hosts.

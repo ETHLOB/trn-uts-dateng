@@ -1,0 +1,106 @@
+version: 2
+
+models:
+  - name: dim_host
+    description: Host dimension, one row per SCD2 version taken from snap_host.
+    columns:
+      - name: host_sk
+        description: Surrogate key of the version (dbt_scd_id).
+        data_tests: [unique, not_null]
+      - name: host_id
+        description: Airbnb host id (natural key, repeats across versions).
+        data_tests: [not_null]
+      - name: valid_from
+        description: First month the version is valid.
+        data_tests: [not_null]
+      - name: valid_to
+        description: Exclusive end of validity; null for the current version.
+      - name: is_current
+        description: True for the latest version.
+
+  - name: dim_property
+    description: Listing property dimension, one row per SCD2 version taken from snap_property.
+    columns:
+      - name: property_sk
+        description: Surrogate key of the version (dbt_scd_id).
+        data_tests: [unique, not_null]
+      - name: listing_id
+        description: Airbnb listing id (natural key, repeats across versions).
+        data_tests: [not_null]
+      - name: valid_from
+        description: First month the version is valid.
+        data_tests: [not_null]
+      - name: valid_to
+        description: Exclusive end of validity; null for the current version.
+      - name: is_current
+        description: True for the latest version.
+
+  - name: dim_lga
+    description: LGA dimension.
+    columns:
+      - name: lga_code
+        description: Numeric LGA code.
+        data_tests: [unique, not_null]
+      - name: lga_name
+        description: LGA name.
+
+  - name: dim_suburb
+    description: Suburb dimension with its LGA.
+    columns:
+      - name: suburb_key
+        description: Upper case suburb name.
+        data_tests: [unique, not_null]
+
+  - name: ref_census_g01
+    description: 2016 Census G01 reference data by LGA.
+    columns:
+      - name: lga_code
+        description: Numeric LGA code.
+        data_tests: [unique, not_null]
+
+  - name: ref_census_g02
+    description: 2016 Census G02 reference data by LGA.
+    columns:
+      - name: lga_code
+        description: Numeric LGA code.
+        data_tests: [unique, not_null]
+
+  - name: fct_listings
+    description: Listing facts per month, IDs and metrics only.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "listing_id || '-' || listing_month"
+    columns:
+      - name: listing_id
+        description: Airbnb listing id.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_property')
+                field: listing_id
+      - name: host_id
+        description: Airbnb host id.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_host')
+                field: host_id
+      - name: listing_month
+        description: First day of the month of the source file.
+        data_tests: [not_null]
+      - name: price
+        description: Nightly price; null when missing.
+      - name: is_active
+        description: 1 when the listing has availability, else 0.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: number_of_stays
+        description: 30 - availability_30, active listings only.
+      - name: estimated_revenue
+        description: number_of_stays * price, active listings only.

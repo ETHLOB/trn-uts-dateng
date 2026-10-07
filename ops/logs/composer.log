@@ -1,1 +1,3 @@
 {"ts": "2026-10-06T10:31:49Z", "env": "bde-at3-airflow", "action": "hold", "result": "done", "detail": "nightly snapshot+delete paused; composer-reaper-resume re-enables them at 05:00"}
+{"ts": "2026-10-07T06:55:32Z", "env": "bde-at3-airflow", "action": "up", "result": "started", "detail": "composer-3-airflow-2.11.1-build.20 small"}
+{"ts": "2026-10-07T07:33:27Z", "env": "bde-at3-airflow", "action": "up", "result": "done", "detail": "created 06:55 to 07:14 UTC; pypi cloud-sql-python-connector[pg8000]>=1.12 installed 07:15 to 07:33 UTC (logged by hand: the session restart cut the script after create)"}

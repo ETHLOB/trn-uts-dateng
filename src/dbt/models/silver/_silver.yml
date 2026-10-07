@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: stg_listings
+    description: Typed and cleaned Airbnb listings, one row per listing per monthly file. listing_month is derived from the file name.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "listing_id || '-' || listing_month"
+    columns:
+      - name: listing_id
+        description: Airbnb listing id.
+        data_tests: [not_null]
+      - name: listing_month
+        description: First day of the month of the source file (not scraped_date, which drifts).
+        data_tests: [not_null]
+      - name: host_id
+        description: Airbnb host id.
+        data_tests: [not_null]
+      - name: room_type
+        description: Airbnb room type.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+      - name: price
+        description: Nightly price; null when the source is empty or zero.
+      - name: has_availability
+        description: Active listing flag (true when has_availability = 't').
+
+  - name: stg_lga
+    description: LGA code to canonical LGA name.
+    columns:
+      - name: lga_code
+        description: Numeric LGA code.
+        data_tests: [unique, not_null]
+      - name: lga_name
+        description: LGA name as in the source file.
+        data_tests: [not_null]
+      - name: lga_name_key
+        description: Upper case LGA name, join key.
+
+  - name: stg_suburb
+    description: Suburb to LGA mapping with the canonical LGA name. lga_code is null when the LGA name is not in stg_lga.
+    columns:
+      - name: suburb_key
+        description: Upper case suburb name.
+        data_tests: [unique, not_null]
+      - name: suburb_name
+        description: Suburb name as in the file.
+      - name: lga_code
+        description: LGA code from stg_lga (null when unmatched).
+      - name: lga_name
+        description: Canonical LGA name from stg_lga.
+
+  - name: stg_census_g01
+    description: 2016 Census G01 by LGA, all counts as integers.
+    columns:
+      - name: lga_code
+        description: Numeric LGA code (LGA10050 becomes 10050).
+        data_tests: [unique, not_null]
+
+  - name: stg_census_g02
+    description: 2016 Census G02 by LGA, medians as integers and averages as numeric.
+    columns:
+      - name: lga_code
+        description: Numeric LGA code.
+        data_tests: [unique, not_null]
+
+  - name: stg_host
+    description: One row per host with the latest attribute set; updated_at is the first month of the latest unchanged run (snapshot timestamp).
+    columns:
+      - name: host_id
+        description: Airbnb host id.
+        data_tests: [unique, not_null]
+      - name: host_neighbourhood_lga
+        description: Canonical LGA name of the host suburb; null when the suburb is missing, not mapped, or 'Overseas'.
+      - name: updated_at
+        description: Snapshot timestamp (first month of the latest run of identical attributes).
+        data_tests: [not_null]
+
+  - name: stg_property
+    description: One row per listing with the latest property attributes; updated_at is the first month of the latest unchanged run (snapshot timestamp).
+    columns:
+      - name: listing_id
+        description: Airbnb listing id.
+        data_tests: [unique, not_null]
+      - name: room_type
+        description: Airbnb room type.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+      - name: updated_at
+        description: Snapshot timestamp (first month of the latest run of identical attributes).
+        data_tests: [not_null]
