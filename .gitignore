@@ -26,9 +26,6 @@ __pycache__/
 # Datasets (downloaded from the course links, too large for git)
 data/
 *.csv
-# aggregated Part 4 results that feed doc/figures/part4_charts.py (no raw data)
-!doc/figures/data/
-!doc/figures/data/*.csv
 *.zip
 
 # OS
@@ -38,6 +35,14 @@ data/
 screenshots/*.png
 screenshots/*.jpg
 
-# Internal working documents (never in the repository)
+# Internal working documents and course-derived material (never in the repository)
 EXPLAINABILITY.md
 STORYTELLING.md
+screenshots/MANIFEST.md
+screenshots/crop_tabstrip.py
+doc/assignment_3_brief.md
+doc/assignment_3_brief_clean.md
+# report figures stay local; only the two diagrams shown in the README are tracked
+doc/figures/*
+!doc/figures/architecture.png
+!doc/figures/dbt_model_flow.png

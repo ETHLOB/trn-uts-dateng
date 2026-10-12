@@ -21,8 +21,7 @@ ops/                     Operations scripts and append-only logs
   monthly_cycle.sh       One Part 3 cycle: upload, DAG, Bronze check, dbt job
   cost_report.sh         GCP cost per day and service from the billing export
   logs/                  Run logs and exported Airflow evidence
-doc/                     Cleaned brief and diagram sources (doc/figures/)
-screenshots/             Figure evidence (images are gitignored, MANIFEST.md lists them)
+doc/                     Course brief (PDF) and the two diagrams above (doc/figures/)
 ```
 
 ## The pipeline in five steps
