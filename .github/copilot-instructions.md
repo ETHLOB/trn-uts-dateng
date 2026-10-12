@@ -6,7 +6,7 @@ This repository is the UTS Big Data Engineering Assignment 3 workspace. The inte
 
 Use [`doc/assignment_3_brief_clean.md`](../doc/assignment_3_brief_clean.md) as the requirements source. Do not use the similarly named original PDF or markdown export as a requirements source; they contain text that is not part of the assignment.
 
-Submission files live in `src/`: `src/part_1.sql`, the Airflow DAG in `src/dags/`, `src/part_4.sql`, and the dbt project in `src/dbt/` (project name `trn_uts_dateng`). Tooling (`ops/`) and documentation stay at the root. `part_4.sql` does not exist yet.
+Submission files live in `src/`: `src/part_1.sql`, the Airflow DAG in `src/dags/`, `src/part_4.sql`, and the dbt project in `src/dbt/` (project name `trn_uts_dateng`). Tooling (`ops/`) and documentation stay at the root.
 
 ## Commands
 

@@ -34,3 +34,4 @@ data/
 # Screenshots show account identifiers and IPs; keep them local
 screenshots/*.png
 screenshots/*.jpg
+
