@@ -38,3 +38,6 @@ data/
 screenshots/*.png
 screenshots/*.jpg
 
+# Internal working documents (never in the repository)
+EXPLAINABILITY.md
+STORYTELLING.md

@@ -23,8 +23,6 @@ ops/                     Operations scripts and append-only logs
   logs/                  Run logs and exported Airflow evidence
 doc/                     Cleaned brief and diagram sources (doc/figures/)
 screenshots/             Figure evidence (images are gitignored, MANIFEST.md lists them)
-EXPLAINABILITY.md        Technical logbook for engineers (entries E1 to E22)
-STORYTELLING.md          Narrative plan for the report (audience, arc, number bank)
 ```
 
 ## The pipeline in five steps
@@ -81,8 +79,3 @@ Run `ops/composer.sh evidence` before `down`: deleting Composer erases Airflow's
 ## Security and cost
 
 No secrets are committed: `.env` and `dbt_cloud.yml` are gitignored, and tracked files use placeholders instead of project IDs, hosts or addresses. The warehouse accepts only the authenticated proxy and dbt Cloud over encrypted connections. Composer is the expensive resource, so it is created for work, exported with `evidence`, then deleted with `down`; a nightly Cloud Scheduler job is the safety net. Real spend per day and service comes from the BigQuery billing export (`ops/cost_report.sh`).
-
-## Further reading
-
-- [EXPLAINABILITY.md](EXPLAINABILITY.md): every execution with commands, results, issues and fixes.
-- [STORYTELLING.md](STORYTELLING.md): the narrative, verified numbers and evidence strength behind the report.
