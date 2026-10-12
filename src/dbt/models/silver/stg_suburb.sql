@@ -1,7 +1,7 @@
 /* stg_suburb: suburb to LGA mapping.
-   Grain: suburb_key (upper case suburb). The file only has the LGA name (upper case), so the
+   Grain: <suburb_key> (upper case suburb). The file only has the LGA name (upper case), so the
    LGA code and canonical name come from stg_lga. A suburb whose LGA name is not in stg_lga
-   keeps lga_code null (visible, not dropped). */
+   keeps <lga_code> null (visible, not dropped). */
 with src as (
     select
         nullif(trim(suburb_name), '') as suburb_name,

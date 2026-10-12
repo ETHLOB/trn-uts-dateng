@@ -1,5 +1,5 @@
 -- Returns fact rows that do not match exactly one dim_host version and one dim_property version
--- at their listing_month (SCD2 validity window). Passes when empty.
+-- at their <listing_month> (SCD2 validity window). Passes when empty.
 select f.listing_id, f.listing_month
 from {{ ref('fct_listings') }} as f
 left join {{ ref('dim_host') }} as h

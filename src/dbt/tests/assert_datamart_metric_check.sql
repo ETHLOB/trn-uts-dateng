@@ -1,10 +1,10 @@
--- Independent recomputation of active_listing_rate and avg estimated revenue per active listing
+-- Independent recomputation of <active_listing_rate> and avg estimated revenue per active listing
 -- for dm_listing_neighbourhood from fct_listings + dim_property (SCD2 join). Returns rows that differ by > 0.01.
 with recomputed as (
     select
         p.listing_neighbourhood,
         f.listing_month,
-        100.0 * sum(f.is_active) / count(*)                                     as rate,
+        100.0 * sum(f.is_active) / count(1)                                     as rate,
         sum(f.estimated_revenue) filter (where f.is_active = 1)
             / nullif(count(f.estimated_revenue) filter (where f.is_active = 1), 0) as avg_rev
     from {{ ref('fct_listings') }} f

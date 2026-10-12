@@ -1,7 +1,7 @@
-/* dm_host_neighbourhood: monthly metrics per host_neighbourhood_lga (host's suburb mapped to its LGA).
-   Grain: host_neighbourhood_lga + listing_month. Hosts without a mappable LGA (empty or 'Overseas'
-   neighbourhood) form one group with a null host_neighbourhood_lga, kept so no host is dropped.
-   Hosts and listing dimensions are joined with SCD2 logic (valid_from <= listing_month < valid_to).
+/* dm_host_neighbourhood: monthly metrics per <host_neighbourhood_lga> (host's suburb mapped to its LGA).
+   Grain: <host_neighbourhood_lga> + <listing_month>. Hosts without a mappable LGA (empty or 'Overseas'
+   neighbourhood) form one group with a null <host_neighbourhood_lga>, kept so no host is dropped.
+   Hosts and listing dimensions are joined with SCD2 logic (<valid_from> <= <listing_month> < <valid_to>).
    A host with listings in a month counts once per group; revenue uses ACTIVE listings only. */
 with base as (
     select
@@ -33,7 +33,7 @@ select
     listing_month,
     to_char(listing_month, 'MM/YYYY')                                   as month_year,
     distinct_hosts,
-    -- estimated revenue per active listing = stays * price, averaged over active listings
+    -- estimated revenue per active listing = stays * <price>, averaged over active listings
     round(avg_estimated_revenue_per_active_listing, 2)                  as avg_estimated_revenue_per_active_listing,
     -- estimated revenue per host = total estimated revenue of active listings / distinct hosts
     round(total_estimated_revenue / distinct_hosts, 2)                  as estimated_revenue_per_host

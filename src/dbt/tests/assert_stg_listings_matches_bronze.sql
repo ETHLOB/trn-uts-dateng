@@ -1,13 +1,13 @@
 -- Singular test: rows per source file must be identical in Bronze and stg_listings.
 -- Returns the files where the counts differ (test passes when no rows are returned).
 with bronze as (
-    select _source_file as source_file, count(*) as n
+    select _source_file as source_file, count(1) as n
     from {{ source('bronze', 'raw_listings') }}
     group by 1
 ),
 
 silver as (
-    select source_file, count(*) as n
+    select source_file, count(1) as n
     from {{ ref('stg_listings') }}
     group by 1
 )

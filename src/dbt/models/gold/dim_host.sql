@@ -1,7 +1,7 @@
 /* dim_host: host dimension with SCD2 versions.
-   Grain: one row per host version (host_sk = dbt_scd_id).
-   valid_to is null for the current version; join facts with
-   listing_month >= valid_from and (valid_to is null or listing_month < valid_to). */
+   Grain: one row per host version (<host_sk> = <dbt_scd_id>).
+   <valid_to> is null for the current version; join facts with
+   <listing_month> >= <valid_from> and (<valid_to> is null or <listing_month> < <valid_to>). */
 select
     dbt_scd_id                  as host_sk,
     host_id,

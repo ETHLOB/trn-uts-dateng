@@ -9,9 +9,9 @@
      Typing, cleaning and renaming happen in Silver (dbt).
    - Column names are the CSV headers in lower case (Postgres folds unquoted
      identifiers to lower case anyway).
-   - Two lineage columns per table: _source_file (which file the row came from;
-     Silver derives the listing month from it, because SCRAPED_DATE drifts:
-     07_2020.csv holds scrapes up to 2020-09-05) and _loaded_at.
+   - Two lineage columns per table: <_source_file> (which file the row came from;
+     Silver derives the listing month from it, because <SCRAPED_DATE> drifts:
+     07_2020.csv holds scrapes up to 2020-09-05) and <_loaded_at>.
    - The Airflow DAG loads as the IAM database user of the Composer service
      account (no password for enhanced security). It gets only the rights it
      needs through the group role bronze_loader.
@@ -224,7 +224,7 @@ END $$;
 
 -- 4. Checks ---------------------------------------------------------------
 SELECT table_name,
-       (SELECT count(*) FROM information_schema.columns c
+       (SELECT count(1) FROM information_schema.columns c
          WHERE c.table_schema = t.table_schema AND c.table_name = t.table_name) AS n_columns
 FROM information_schema.tables t
 WHERE table_schema = 'bronze'

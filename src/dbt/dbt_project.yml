@@ -15,7 +15,7 @@ clean-targets: ["target", "dbt_packages"]
 
 # Medallion layers. Bronze is the raw schema loaded by Airflow (declared as a source).
 # Schema names: target "prod" (dbt Cloud) writes silver / gold / datamart; any other target
-# writes <target schema>_silver etc. (macros/generate_schema_name.sql), so local runs never
+# writes every layer to its <target.schema> (dbt_dev locally; macros/generate_schema_name.sql), so local runs never
 # touch the production snapshots.
 models:
   trn_uts_dateng:

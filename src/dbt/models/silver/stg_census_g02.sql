@@ -1,5 +1,5 @@
 /* stg_census_g02: 2016 Census G02 (selected medians and averages), one row per LGA.
-   Grain: lga_code. Medians are integers, averages numeric. */
+   Grain: <lga_code>. Medians are integers, averages numeric. */
 select
     substr(trim(lga_code_2016), 4)::int                         as lga_code,
     nullif(trim(median_age_persons), '')::int                   as median_age_persons,

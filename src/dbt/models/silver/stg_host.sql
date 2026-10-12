@@ -1,14 +1,14 @@
 /* stg_host: one row per host with its LATEST attribute set, ready for the SCD2 snapshot.
-   Grain: host_id.
-   updated_at (snapshot timestamp), gaps-and-islands:
+   Grain: <host_id>.
+   <updated_at> (snapshot timestamp), gaps-and-islands:
    1. one row per host per month (distinct attribute tuples; a host has one tuple per month);
    2. flag a change when the tuple differs from the previous month's (is distinct from);
    3. running sum of the flags = run id; the last run is the host's current attribute set;
-   4. updated_at = first month of that last run.
-   Why: the timestamp strategy opens a new version only when updated_at increases, so an
+   4. <updated_at> = first month of that last run.
+   Why: the timestamp strategy opens a new version only when <updated_at> increases, so an
    unchanged host keeps one version (not one per month), a change is dated to the month it
-   was first observed, and the non-monotonic scraped_date is not needed.
-   host_neighbourhood_lga: suburb name mapped to the canonical LGA name via stg_suburb;
+   was first observed, and the non-monotonic <scraped_date> is not needed.
+   <host_neighbourhood_lga>: suburb name mapped to the canonical LGA name via stg_suburb;
    null when unmatched (e.g. 'Overseas' is not a suburb). */
 with monthly as (
     select distinct

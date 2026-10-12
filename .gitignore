@@ -26,6 +26,9 @@ __pycache__/
 # Datasets (downloaded from the course links, too large for git)
 data/
 *.csv
+# aggregated Part 4 results that feed doc/figures/part4_charts.py (no raw data)
+!doc/figures/data/
+!doc/figures/data/*.csv
 *.zip
 
 # OS

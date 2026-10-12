@@ -1,7 +1,7 @@
-/* dm_property_type: monthly metrics per property_type, room_type and accommodates.
-   Grain: property_type + room_type + accommodates + listing_month. View on fct_listings joined to the dimension
-   versions valid at listing_month (SCD2: valid_from <= listing_month < valid_to, null valid_to = open),
-   never on is_current. Price, rating, stays and revenue metrics use ACTIVE listings only.
+/* dm_property_type: monthly metrics per <property_type>, <room_type> and <accommodates>.
+   Grain: <property_type> + <room_type> + <accommodates> + <listing_month>. View on fct_listings joined to the dimension
+   versions valid at <listing_month> (SCD2: <valid_from> <= <listing_month> < <valid_to>, null <valid_to> = open),
+   never on <is_current>. Price, rating, stays and revenue metrics use ACTIVE listings only.
    Percentage change compares with the previous CALENDAR month of the same group (null when absent). */
 with base as (
     select
@@ -34,9 +34,9 @@ agg as (
         room_type,
         accommodates,
         listing_month,
-        count(*)                                                        as total_listings,
-        count(*) filter (where is_active = 1)                           as active_listings,
-        count(*) filter (where is_active = 0)                           as inactive_listings,
+        count(1)                                                        as total_listings,
+        count(1) filter (where is_active = 1)                           as active_listings,
+        count(1) filter (where is_active = 0)                           as inactive_listings,
         min(price) filter (where is_active = 1)                         as min_price,
         max(price) filter (where is_active = 1)                         as max_price,
         percentile_cont(0.5) within group (order by price)
@@ -84,9 +84,9 @@ select
     case when prev_month = listing_month - interval '1 month'
          then round((inactive_listings - prev_inactive_listings)::numeric
                     / nullif(prev_inactive_listings, 0) * 100, 2) end                       as pct_change_inactive_listings,
-    -- number of stays (active listings) = sum(30 - availability_30)
+    -- number of stays (active listings) = sum(30 - <availability_30>)
     total_stays,
-    -- estimated revenue per active listing = stays * price, averaged over active listings
+    -- estimated revenue per active listing = stays * <price>, averaged over active listings
     round(avg_estimated_revenue_per_active_listing, 2)                                      as avg_estimated_revenue_per_active_listing
 from lagged
 order by property_type, room_type, accommodates, listing_month

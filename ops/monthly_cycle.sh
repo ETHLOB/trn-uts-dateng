@@ -28,7 +28,7 @@ BUCKET=${PREFIX%/dags}
 AIRFLOW=$(gcloud composer environments describe "$ENV" --location "$LOC" --format="value(config.airflowUri)")
 af() { curl -sf -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" "$@"; }
 dbt_api() { curl -sf -H "Authorization: Token ${DBT_TOKEN}" -H "Content-Type: application/json" "$@"; }
-rows() { "$PSQL" "$DATABASE_URI" -At -c "select count(*) from bronze.raw_listings where _source_file = '$FILE'"; }
+rows() { "$PSQL" "$DATABASE_URI" -At -c "select count(1) from bronze.raw_listings where _source_file = '$FILE'"; }
 
 if [[ ${2:-} == --dbt-only ]]; then SKIP_DAG=1; else SKIP_DAG=0; fi   # resume at step 4 after a fixed check
 

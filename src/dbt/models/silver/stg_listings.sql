@@ -1,12 +1,12 @@
 /* stg_listings: typed and cleaned Airbnb listings, all loaded months.
-   Grain: listing_id + listing_month (one row per listing per monthly file).
+   Grain: <listing_id> + <listing_month> (one row per listing per monthly file).
    Decisions:
-   - listing_month comes from the file name (MM_YYYY.csv), not scraped_date: 07_2020.csv has
-     scrapes dated 2020-09-05, so scraped_date is not a reliable month.
-   - host_since is d/m/yyyy; empty strings become null.
-   - price 0 or empty becomes null (a zero price is a data error).
-   - host_is_superhost / has_availability 't'/'f' become boolean; empty becomes null.
-   - Categories (property_type etc.) are kept as Airbnb wrote them. */
+   - <listing_month> comes from the file name (MM_YYYY.csv), not <scraped_date>: 07_2020.csv has
+     scrapes dated 2020-09-05, so <scraped_date> is not a reliable month.
+   - <host_since> is d/m/yyyy; empty strings become null.
+   - <price> 0 or empty becomes null (a zero <price> is a data error).
+   - <host_is_superhost> / <has_availability> 't'/'f' become boolean; empty becomes null.
+   - Categories (<property_type> etc.) are kept as Airbnb wrote them. */
 select
     nullif(trim(listing_id), '')::bigint                        as listing_id,
     nullif(trim(scrape_id), '')::bigint                         as scrape_id,

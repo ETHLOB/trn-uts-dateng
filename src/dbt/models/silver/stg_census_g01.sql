@@ -1,5 +1,5 @@
 /* stg_census_g01: 2016 Census G01 (selected person characteristics by sex), one row per LGA.
-   Grain: lga_code. Key decisions: lga_code_2016 'LGA10050' becomes integer 10050; every
+   Grain: <lga_code>. Key decisions: <lga_code_2016> 'LGA10050' becomes integer 10050; every
    count column is cast to integer with the bronze lower-case name kept. The 3 census codes
    that are not in raw_lga_code (16650, 19399, 19799) are kept. */
 select

@@ -1,8 +1,8 @@
 -- depends_on: {{ ref('dim_host') }}
 -- depends_on: {{ ref('dim_property') }}
 /* fct_listings: listing facts, IDs and metrics only.
-   Grain: listing_id + listing_month.
-   number_of_stays and estimated_revenue are only defined for active listings (null otherwise);
+   Grain: <listing_id> + <listing_month>.
+   <number_of_stays> and <estimated_revenue> are only defined for active listings (null otherwise);
    the dimension attributes are joined in the datamart with SCD2 logic, not stored here. */
 select
     listing_id,

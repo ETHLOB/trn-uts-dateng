@@ -34,5 +34,7 @@ Local dbt runs use dbt Core + dbt-postgres from `~/.venvs/trn-uts-dateng` (not t
 - Keep the three datamart views ordered as required: neighbourhood plus month/year; property type, room type, accommodates plus month/year; and host-neighbourhood LGA plus month/year.
 - The project has MCP configuration for dbt Cloud and restricted/read-write PostgreSQL access. Prefer read-only database inspection for validation. Use write access only when necessary, explain the write before executing it, and save solution writes in the appropriate deliverable.
 - Python code follows ruff's default lint rules and formatter (line length 88); check with `uvx ruff check` and `uvx ruff format`.
+- In comments and docstrings, write variables (columns, CTE names, Python variables and parameters) as `<variable_name>`; table, model, function and file names stay bare.
+- Count rows with `count(1)`, never `count(*)`.
 - Never expose or commit credentials from `.env` or `dbt_cloud.yml`. Keep `.env`, `.mcp.json`, and `.claude/` out of the submission archive.
 - Follow [`CLAUDE.md`](../CLAUDE.md) for the detailed project constraints and the handling of the cleaned brief.

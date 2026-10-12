@@ -1,14 +1,14 @@
 /* stg_property: one row per listing with its LATEST attribute set, ready for the SCD2 snapshot.
-   Grain: listing_id.
-   updated_at (snapshot timestamp), gaps-and-islands:
+   Grain: <listing_id>.
+   <updated_at> (snapshot timestamp), gaps-and-islands:
    1. one row per listing per month;
-   2. flag a change when (property_type, room_type, accommodates, listing_neighbourhood) differs
+   2. flag a change when (<property_type>, <room_type>, <accommodates>, <listing_neighbourhood>) differs
       from the previous month's (is distinct from);
    3. running sum of the flags = run id; the last run is the current attribute set;
-   4. updated_at = first month of that last run.
-   Why: the timestamp strategy opens a new version only when updated_at increases, so an
-   unchanged listing keeps one version, a change (e.g. the Jul/Aug 2020 property_type
-   relabelling) is dated to the month it was first observed, and scraped_date is not usable
+   4. <updated_at> = first month of that last run.
+   Why: the timestamp strategy opens a new version only when <updated_at> increases, so an
+   unchanged listing keeps one version, a change (e.g. the Jul/Aug 2020 <property_type>
+   relabelling) is dated to the month it was first observed, and <scraped_date> is not usable
    (non-monotonic). Categories are not harmonised: the relabelling is real history. */
 with monthly as (
     select distinct

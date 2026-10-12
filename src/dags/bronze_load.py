@@ -27,7 +27,7 @@ import csv
 import io
 import os
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from airflow.decorators import dag, task
 from airflow.exceptions import AirflowSkipException
@@ -37,7 +37,7 @@ from airflow.models.param import Param
 DATA_DIR = "/home/airflow/gcs/data"
 SCHEMA = "bronze"
 
-# raw table -> file in the bucket (relative to DATA_DIR)
+# raw table -> file in the bucket (relative to <DATA_DIR>)
 REFERENCE_FILES = {
     "raw_census_g01": "census/2016Census_G01_NSW_LGA.csv",
     "raw_census_g02": "census/2016Census_G02_NSW_LGA.csv",
@@ -72,9 +72,9 @@ def copy_csv(conn, table, path, truncate):
     - The header must match the table's columns (case-insensitive, same order). Extra trailing
       header cells are allowed only if empty (NSW_LGA_SUBURB.csv has 25 of them) and are dropped.
     - utf-8-sig strips the byte-order mark of NSW_LGA_SUBURB.csv.
-    - Each row gets the lineage column _source_file; _loaded_at takes its default now().
+    - Each row gets the lineage column <_source_file>; <_loaded_at> takes its default now().
     - Empty fields are written unquoted, so COPY stores them as NULL.
-    - truncate=True empties the table first (reference data); otherwise only this file's earlier
+    - <truncate>=True empties the table first (reference data); otherwise only this file's earlier
       rows are deleted, so a month can be reloaded without touching the other months.
     - The row count is checked against the file before COMMIT; on any error nothing is kept.
     """
@@ -85,7 +85,7 @@ def copy_csv(conn, table, path, truncate):
         "WHERE table_schema = %s AND table_name = %s ORDER BY ordinal_position",
         (SCHEMA, table),
     )
-    # data columns only; the lineage columns (_source_file, _loaded_at) are not in the file
+    # data columns only; the lineage columns (<_source_file>, <_loaded_at>) are not in the file
     cols = [r[0] for r in cur.fetchall() if not r[0].startswith("_")]
 
     buf = io.StringIO()
@@ -112,7 +112,7 @@ def copy_csv(conn, table, path, truncate):
         stream=buf,  # streamed from the worker: server-side COPY FROM '<file>' needs a true superuser
     )
     cur.execute(
-        f"SELECT count(*) FROM {SCHEMA}.{table} WHERE _source_file = %s", (source,)
+        f"SELECT count(1) FROM {SCHEMA}.{table} WHERE _source_file = %s", (source,)
     )
     loaded = cur.fetchone()[0]
     if loaded != rows:
@@ -133,7 +133,7 @@ def month_key(name):
     dag_id="bronze_load",
     description="Load census, LGA mapping and one Airbnb month from the Composer bucket into bronze",
     schedule_interval=None,  # triggered by hand only (brief, Part 1.3)
-    start_date=datetime(2026, 10, 1, tzinfo=timezone.utc),
+    start_date=datetime(2026, 10, 1, tzinfo=UTC),
     catchup=False,
     max_active_runs=1,  # months must load one at a time, in order
     params={
