@@ -47,3 +47,6 @@ doc/assignment_3_brief_clean.md
 doc/figures/*
 !doc/figures/architecture.png
 !doc/figures/dbt_model_flow.png
+# assistant working notes and the course brief stay local (internal / course material)
+CLAUDE.md
+doc/*.pdf
