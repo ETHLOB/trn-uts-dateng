@@ -23,3 +23,102 @@
 {"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-07", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
 {"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-07", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
 {"cost": 0.3094, "credits": -0.3094, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-07", "as_of": "2026-10-07T12:36:35Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-04", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0115, "credits": -0.0115, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-04", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-05", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.9899, "credits": -0.9899, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-05", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-06", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-06", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 1.7214, "credits": -1.7214, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-06", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-06", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 6.0122, "credits": -6.0122, "currency": "AUD", "service": "Cloud Composer", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.8709, "credits": -0.8709, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": -0.0, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Trace", "usage_date": "2026-10-07", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-08", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-08", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-08", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-08", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-08", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-09", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-09", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-09", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-09", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-09", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-10", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-10", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-10", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-10", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-10", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-11", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-11", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-11", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-11", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-11", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-12", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.3541, "credits": -0.3541, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-12", "as_of": "2026-10-12T13:00:06Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-04", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0115, "credits": -0.0115, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-04", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-05", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.9899, "credits": -0.9899, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-05", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-06", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-06", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 1.7214, "credits": -1.7214, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-06", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-06", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 6.0122, "credits": -6.0122, "currency": "AUD", "service": "Cloud Composer", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.8709, "credits": -0.8709, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": -0.0, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Trace", "usage_date": "2026-10-07", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-08", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-08", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-08", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-08", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-08", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-09", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-09", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-09", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-09", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-09", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-10", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-10", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-10", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-10", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-10", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-11", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-11", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-11", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-11", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-11", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-12", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-12", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.8794, "credits": -0.8794, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-12", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-12", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-12", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-13", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-13", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.8854, "credits": -0.8854, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-13", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-13", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-13", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-14", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-14", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 1.7213, "credits": -1.7213, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-14", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-14", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-14", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-15", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-15", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.581, "credits": -0.581, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-15", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-15", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-15", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "BigQuery", "usage_date": "2026-10-16", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-16", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.5665, "credits": -0.5665, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-16", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Scheduler", "usage_date": "2026-10-16", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0001, "credits": -0.0001, "currency": "AUD", "service": "Cloud Storage", "usage_date": "2026-10-16", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.0, "credits": 0.0, "currency": "AUD", "service": "Cloud Logging", "usage_date": "2026-10-17", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}
+{"cost": 0.2833, "credits": -0.2833, "currency": "AUD", "service": "Cloud SQL", "usage_date": "2026-10-17", "as_of": "2026-10-17T13:11:00Z", "net": 0.0}

@@ -9,6 +9,7 @@ lab/
 
 # Additional files gathered from the course materials, not part of the assignment. Can be dangerous CAREFUL!!
 misc/
+report/*
 
 # dbt generated files
 src/dbt/target/
